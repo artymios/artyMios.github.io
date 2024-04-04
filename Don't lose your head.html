@@ -27,17 +27,10 @@
 					<div id="main">
 						<!-- Content -->
 							<section id="content" class="main">
-								<!-- <ul>
-									<span class="video"><video src="images/AscensionZ Menu Showcase.mp4" muted loop autoplay width="1200"></span>
-									<div class="box alt">
-										<div class="row gtr-uniform">
-											<div class="col-6"><span class="image fit"><img src="images/AscensionZ main menu.png" alt="" /></span></div>
-											<div class="col-6"><span class="image fit"><img src="images/AscensionZ options menu.png" alt="" /></span></div>
-										</div>
-									</div>
-								</ul> -->
+								<div class="col-6"><span class="image fit"><img src="images/Don't lose your head.jpg"
+									alt="" /></span></div>
 								<h2>Overview</h2>
-								<p>Don't Lose Your Head is a Unity VR project that was started in November last year as part of the Experimental Games module at my university. The game revolved around one mechanic; being able to place your main character's head on various spaces, with puzzle and stealth elements as the core gameplay experience. And while it's been a rocky road so far, I can state with certainty that while developing for VR is challenging, this platform allows for immersive experiences no other platform even comes close to, and this project kickstarted my want to develop games for VR (now equipped with my own VR headset).</p>
+								<p>Don't Lose Your Head is a Unity VR project that was started in November 2022 as part of the Experimental Games module at my university. The game revolved around one mechanic; being able to place your main character's head on various spaces, with puzzle and stealth elements as the core gameplay experience. And while it's been a rocky road so far, I can state with certainty that while developing for VR is challenging, this platform allows for immersive experiences no other platform even comes close to, and this project kickstarted my want to develop games for VR (now equipped with my own VR headset).</p>
 								<h2>Just put the camera on a space in the game, right?</h2>
 								<p>Safe to say, that was what I thought at the beggining of the development of the game (after thinking "Wow, I love this thing" every time I put on the Oculus Quest I borrowed from my university), but I quickly discovered that that isn't going to work. Moving the camera with the player's hand? Sounds like a motion sickness nightmare. So was now given a head game object, that they could grab and place on top of an in-game object that allowed for it (nicknamed a Head Place Area), which involved discovering the XR Development Toolkit. When I first started, I wanted to use as little of this system as possible and implement my own, which worked; the player's head object was grabbable, it could be placed at a Head Place Area, and the camera would switch accordingly... but it was filled with bugs.</p> 
 								<p> The game wouldn't detect the player's controllers after having their head back on their body and the cameras would not disable themselves at times. So I decided to overhaul the entire system, keeping what code worked beforehand, and fully integrating the XR Development Toolkit when applicable, and now the mechanic works fully as intended, if not even better than before! Instead of the player having to point at their head to grab it, they can now choose between that and grabbing it based on the proximity of the player's hand, and even pass it to the other one if they want to, and the camera issues were solved as a side effect.</p>
