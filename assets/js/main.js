@@ -29,6 +29,9 @@
 
 	// Nav.
 		var $nav = $('#nav');
+		var navAltActive = false; // Flag to track if nav.alt is active
+		var initialNavWidth = $nav.outerWidth() /* + $nav.padding() */; // Get initial width of #nav
+		var finalNavWidth = calculateFinalNavWidth(); // Calculate final width for #nav.alt
 
 		if ($nav.length > 0) {
 
@@ -38,11 +41,25 @@
 						mode: 'top',
 						enter: function() {
 							$nav.addClass('alt');
+							navAltActive = true; // Set flag when nav.alt is active
+							$nav.css('width', initialNavWidth); // Set initial width of #nav.alt
 						},
 						leave: function() {
 							$nav.removeClass('alt');
+							navAltActive = false; // Reset flag when nav.alt is inactive
+							$nav.css('width', ''); // Reset width of #nav
 						},
 					});
+
+				// Adjust nav width on scroll.
+				$window.on('scroll', function() {
+					if (navAltActive) { // Only adjust width if nav.alt is active
+						var scrollTop = $window.scrollTop();
+						var maxScroll = 600 /* 1.5 * $('header').height() */; // Increase this value to make the transition slower
+						var newWidth = Math.max(initialNavWidth - ((scrollTop - $('header').height()) / maxScroll) * (initialNavWidth - finalNavWidth), finalNavWidth); // Adjust min width as needed
+						$nav.css('width', newWidth + 'px');
+					}
+				});
 
 			// Links.
 				var $nav_a = $nav.find('a');
@@ -114,6 +131,15 @@
 					});
 
 		}
+
+	// Function to calculate the final width of #nav.alt
+	function calculateFinalNavWidth() {
+		var totalWidth = 0;
+		$nav.find('ul li a').each(function() {
+			totalWidth += $(this).outerWidth(true);
+		});
+		return totalWidth + 10;
+	}
 
 	// Scrolly.
 		$('.scrolly').scrolly({
