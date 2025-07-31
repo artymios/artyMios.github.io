@@ -64,7 +64,7 @@
 			</section>
 
 			<!-- First Section -->
-			<section id="first" class="main special">
+			<!-- <section id="first" class="main special">
 				<header class="major">
 					<h2><b>My Collection</b></h2>
 				</header>
@@ -74,7 +74,7 @@
 								style="max-height: 100%; max-width: 100%;"></span>
 						<h3>Main Menu</h3>
 						<p>My first experience making a UI system using Unreal Engine 4.</p>
-						<a href="AscensionZ.html" class="button">See More</a>
+						<a href="AscensionZ.html" class="see-more button">See More</a>
 					</li>
 					<li>
 						<span class="image"><img src="images/Plund'a'Pirates main menu.png" alt="" height="300"
@@ -83,22 +83,15 @@
 						<p>A game made as the result of a game jam, relating to a "Reveal". Published on <a
 								href="https://artymios.itch.io/plundapirates" target="_blank"
 								rel="noopener noreferrer">Itch</a>.</p>
-						<a href="Plund'a'Pirates.html" class="button">See More</a>
+						<a href="Plund'a'Pirates.html" class="see-more button">See More</a>
 					</li>
 					<li>
 						<span class="image"><img src="images/Don't lose your head.jpg" alt="" height="300"
 								style="max-height: 100%; max-width: 100%;"></span>
 						<h3>Don't Lose Your Head!</h3>
 						<p>A VR project, where I implemented the core mechanics of the game.</p>
-						<a href="Don't lose your head.html" class="button">See More</a>
+						<a href="Don't lose your head.html" class="see-more button">See More</a>
 					</li>
-					<!-- <li>
-						<span class="image"><img src="images/Endless Runner screenshot.png" alt="" height="300"
-								style="max-height: 100%; max-width: 100%;"></span>
-						<h3>Professional Awareness</h3>
-						<p>Being employed to work on an Endless Runner game for a Professional Awareness assignment.</p>
-						<a href="Professional Awareness.html" class="button">See More</a>
-					</li> -->
 					<li>
 						<span class="image"><img src="images/Depthcharge main menu.png" alt="" width="300"
 								style="max-height: 100%; max-width: 100%;"></span>
@@ -107,9 +100,51 @@
 							<a href="https://github.com/sumo-digital-academy/playbuffer" target="_blank"
 								rel="noopener noreferrer">Playbuffer</a>.
 						</p>
-						<a href="Depthcharge.html" class="button">See More</a>
+						<a href="Depthcharge.html" class="see-more button">See More</a>
 					</li>
 				</ul>
+			</section> -->
+
+			<section id="first" class="main special">
+				<header class="major">
+					<h2><b>My Collection</b></h2>
+				</header>
+
+				<div class="main-box">
+					<div class="container">
+						<span class="image box"><img src="images/AscensionZ main menu close-up.png" alt="" height="300"
+								style="max-height: 100%; max-width: 100%;"></span>
+						<h3>Main Menu</h3>
+						<p>My first experience making a UI system using Unreal Engine 4.</p>
+						<a href="AscensionZ.html" class="see-more button">See More</a>
+					</div>
+					<div class="container">
+						<span class="image box"><img src="images/Plund'a'Pirates main menu.png" alt="" height="300"
+								style="max-height: 100%; max-width: 100%;"></span>
+						<h3>Plund'a'Pirates</h3>
+						<p>A game made as the result of a game jam, relating to a "Reveal". Published on <a
+								href="https://artymios.itch.io/plundapirates" target="_blank"
+								rel="noopener noreferrer">Itch</a>.</p>
+						<a href="Plund'a'Pirates.html" class="see-more button">See More</a>
+					</div>
+					<div class="container">
+						<span class="image box"><img src="images/Don't lose your head.jpg" alt="" height="300"
+								style="max-height: 100%; max-width: 100%;"></span>
+						<h3>Don't Lose Your Head!</h3>
+						<p>A VR project, where I implemented the core mechanics of the game.</p>
+						<a href="Don't lose your head.html" class="see-more button">See More</a>
+					</div>
+					<div class="container">
+						<span class="image box"><img src="images/Depthcharge main menu.png" alt="" width="300"
+								style="max-height: 100%; max-width: 100%;"></span>
+						<h3>Depthcharge</h3>
+						<p>My version of the retro clasic "Depthcharge" coded in C++ using
+							<a href="https://github.com/sumo-digital-academy/playbuffer" target="_blank"
+								rel="noopener noreferrer">Playbuffer</a>.
+						</p>
+						<a href="Depthcharge.html" class="see-more button">See More</a>
+					</div>
+				</div>
 			</section>
 
 			<!-- Get Started -->
@@ -165,6 +200,15 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/scroll.js" defer></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			const featuresList = document.querySelector(".main-box");
+			if (featuresList && featuresList.children.length === 4) {
+				featuresList.classList.add("two-by-two");
+			}
+		});
+	</script>
+
 
 </body>
 

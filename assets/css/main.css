@@ -2114,6 +2114,25 @@ button.primary.icon:before,
 	color: #ffffff !important;
 }
 
+/* .see-more {
+	justify-self: flex-end;
+} */
+
+/* Container */
+
+.container {
+	display: flex;
+	height:677px;
+	width: 600px;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+.container:last-child {
+	justify-content: flex-end;
+}
+
 /* Form */
 
 form {
@@ -2760,6 +2779,28 @@ ul.icons li:last-child {
 	padding-right: 0 !important;
 }
 
+/* Main box */
+
+.main-box {
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+	width: calc(100% + 2em);
+	margin: 0 0 3em -1em;
+	padding: 0;
+	list-style: none;
+}
+
+
 /* Section/Article */
 
 section.special,
@@ -2961,6 +3002,21 @@ table.alt tbody tr td {
 .features li> :last-child {
 	margin-bottom: 0;
 }
+
+.features .two-by-two li {
+	width: calc(50% - 2em);
+}
+
+.features .two-by-two li:nth-child(1),
+.features .two-by-two li:nth-child(2) {
+	margin-top: 0;
+}
+
+.features .two-by-two li:nth-child(3),
+.features .two-by-two li:nth-child(4) {
+	margin-top: 3em;
+}
+
 
 @media screen and (max-width: 980px) {
 
