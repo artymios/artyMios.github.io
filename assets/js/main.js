@@ -10,7 +10,7 @@
 		$body = $('body'),
 		$main = $('#main');
 
-	// Breakpoints.
+	// Breakpoints
 		breakpoints({
 			xlarge:   [ '1281px',  '1680px' ],
 			large:    [ '981px',   '1280px' ],
@@ -20,7 +20,7 @@
 			xxsmall:  [ null,      '360px'  ]
 		});
 
-	// Play initial animations on page load.
+	// Play initial animations
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
@@ -29,39 +29,38 @@
 
 	// Nav.
 		var $nav = $('#nav');
-		var navAltActive = false; // Flag to track if nav.alt is active
-		var initialNavWidth = $nav.outerWidth() /* + $nav.padding() */; // Get initial width of #nav
-		var finalNavWidth = calculateFinalNavWidth(); // Calculate final width for #nav.alt
+		var navAltActive = false;
+		var initialNavWidth = $nav.outerWidth() /* + $nav.padding() */;
+		var finalNavWidth = calculateFinalNavWidth();
 
 		if ($nav.length > 0) {
 
-			// Shrink effect.
+			// Shrinking
 				$main
 					.scrollex({
 						mode: 'top',
 						enter: function() {
 							$nav.addClass('alt');
-							navAltActive = true; // Set flag when nav.alt is active
-							$nav.css('width', initialNavWidth); // Set initial width of #nav.alt
+							navAltActive = true; 
+							$nav.css('width', initialNavWidth);
 						},
 						leave: function() {
 							$nav.removeClass('alt');
-							navAltActive = false; // Reset flag when nav.alt is inactive
-							$nav.css('width', ''); // Reset width of #nav
+							navAltActive = false;
+							$nav.css('width', '');
 						},
 					});
 
-				// Adjust nav width on scroll.
+				// Adjust nav width on scroll
 				$window.on('scroll', function() {
-					if (navAltActive) { // Only adjust width if nav.alt is active
+					if (navAltActive) {
 						var scrollTop = $window.scrollTop();
-						var maxScroll = 600 /* 1.5 * $('header').height() */; // Increase this value to make the transition slower
-						var newWidth = Math.max(initialNavWidth - ((scrollTop - $('header').height()) / maxScroll) * (initialNavWidth - finalNavWidth), finalNavWidth); // Adjust min width as needed
+						var maxScroll = 600 /* 1.5 * $('header').height() */; // Increase for slower transition
+						var newWidth = Math.max(initialNavWidth - ((scrollTop - $('header').height()) / maxScroll) * (initialNavWidth - finalNavWidth), finalNavWidth);
 						$nav.css('width', newWidth + 'px');
 					}
 				});
 
-			// Links.
 				var $nav_a = $nav.find('a');
 
 				$nav_a
@@ -73,16 +72,13 @@
 
 						var $this = $(this);
 
-						// External link? Bail.
 							if ($this.attr('href').charAt(0) != '#')
 								return;
 
-						// Deactivate all links.
 							$nav_a
 								.removeClass('active')
 								.removeClass('active-locked');
 
-						// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
 							$this
 								.addClass('active')
 								.addClass('active-locked');
@@ -94,26 +90,20 @@
 							id = $this.attr('href'),
 							$section = $(id);
 
-						// No section for this link? Bail.
 							if ($section.length < 1)
 								return;
 
-						// Scrollex.
+						// Scrollex
 							$section.scrollex({
 								mode: 'middle',
 								initialize: function() {
-
-									// Deactivate section.
 										if (browser.canUse('transition'))
 											$section.addClass('inactive');
-
 								},
 								enter: function() {
 
-									// Activate section.
 										$section.removeClass('inactive');
 
-									// No locked links? Deactivate all links and activate this section's one.
 										if ($nav_a.filter('.active-locked').length == 0) {
 
 											$nav_a.removeClass('active');
@@ -121,7 +111,6 @@
 
 										}
 
-									// Otherwise, if this section's link is the one that's locked, unlock it.
 										else if ($this.hasClass('active-locked'))
 											$this.removeClass('active-locked');
 
@@ -132,7 +121,7 @@
 
 		}
 
-	// Function to calculate the final width of #nav.alt
+	// #nav.alt final width calculation
 	function calculateFinalNavWidth() {
 		var totalWidth = 0;
 		$nav.find('ul li a').each(function() {
@@ -141,7 +130,7 @@
 		return totalWidth + 10;
 	}
 
-	// Scrolly.
+	// Scrolly
 		$('.scrolly').scrolly({
 			speed: 1000
 		});
