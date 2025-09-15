@@ -27,7 +27,6 @@
 			}, 100);
 		});
 
-	// Nav.
 		var $nav = $('#nav');
 		var navAltActive = false;
 		var initialNavWidth = $nav.outerWidth() /* + $nav.padding() */;
